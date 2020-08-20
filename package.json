@@ -1,7 +1,7 @@
 {
   "name": "react-native-login-twitter",
   "description": "Social Signin with Twitter",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "license": "MIT",
   "main": "index.js",
   "types": "index.d.ts",
@@ -24,13 +24,13 @@
     "social signin",
     "authentication"
   ],
-  "homepage": "https://github.com/clockin/react-native-login-twitter.git",
+  "homepage": "https://github.com/justjavac/react-native-login-twitter.git",
   "repository": {
     "type": "git",
-    "url": "https://github.com/clockin/react-native-twitter-signin"
+    "url": "https://github.com/justjavac/react-native-twitter-signin"
   },
   "bugs": {
-    "url": "https://github.com/clockin/react-native-twitter-signin/issues"
+    "url": "https://github.com/justjavac/react-native-twitter-signin/issues"
   },
   "dependencies": {},
   "peerDependencies": {
