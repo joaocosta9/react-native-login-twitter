@@ -31,16 +31,9 @@ RCT_EXPORT_METHOD(logIn: (RCTPromiseResolveBlock)resolve
     [[Twitter sharedInstance] logInWithCompletion:^(TWTRSession * _Nullable session, NSError * _Nullable error) {
         if (session) {
             TWTRAPIClient *client = [TWTRAPIClient clientWithCurrentUser];
-
-            [client requestEmailForCurrentUser:^(NSString *email, NSError *error) {
-                NSString *requestedEmail = (email) ? email : @"";
-                NSDictionary *body = @{@"authToken": session.authToken,
-                                       @"authTokenSecret": session.authTokenSecret,
-                                       @"userID":session.userID,
-                                       @"email": requestedEmail,
-                                       @"userName":session.userName};
-                resolve(body);
-            }];
+            NSDictionary *body = @{@"authToken": session.authToken,
+                                   @"authTokenSecret": session.authTokenSecret};
+            resolve(body);
         } else {
             reject(@"Error", @"Twitter signin error", error);
         }
