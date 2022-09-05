@@ -67,27 +67,8 @@ public class TwitterSigninModule extends ReactContextBaseJavaModule implements A
                 final WritableMap map = Arguments.createMap();
                 map.putString("authToken", twitterAuthToken.token);
                 map.putString("authTokenSecret", twitterAuthToken.secret);
-                map.putString("name", session.getUserName());
-                map.putString("userID", Long.toString(session.getUserId()));
-                map.putString("userName", session.getUserName());
-                twitterAuthClient.requestEmail(session, new com.twitter.sdk.android.core.Callback<String>() {
-                    @Override
-                    public void success(Result<String> result) {
-                        map.putString("email", result.data);
-                        promise.resolve(map);
-                    }
-
-                    @Override
-                    public void failure(TwitterException exception) {
-                        map.putString("email", "COULD_NOT_FETCH");
-                        promise.reject(
-                                "COULD_NOT_FETCH",
-                                map.toString(),
-                                new Exception("Failed to obtain email", exception));
-                    }
-                });
+                promise.resolve(map);
             }
-
             @Override
             public void failure(TwitterException exception) {
                 promise.reject("USER_CANCELLED", exception.getMessage(), exception);
